@@ -23,7 +23,6 @@ public class DisplayChest extends JavaPlugin {
 	
 	@Override
 	public void onDisable(){
-		this.saveConfig();
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -35,10 +34,10 @@ public class DisplayChest extends JavaPlugin {
 					if(args.length > 1){
 						p.sendMessage("You have too many arguments");
 					}else if(args.length == 0){
-						p.sendMessage("To use this command: /dc [create/remove]");
+						p.sendMessage("To use this command: /dc [create/remove/reload]");
 						return true;
 					}else if(args.length == 1){
-						if(args[0].equalsIgnoreCase("create") || args[0].equalsIgnoreCase("remove")){
+						if(args[0].equalsIgnoreCase("create") || args[0].equalsIgnoreCase("remove") || args[0].equalsIgnoreCase("reload")){
 							if(args[0].equalsIgnoreCase("create")){
 								//Code Goes Here To create Chest
 								if(p.getTargetBlock(null, 5).getType() == Material.CHEST || p.getTargetBlock(null, 5).getType() == Material.TRAPPED_CHEST){
@@ -59,6 +58,11 @@ public class DisplayChest extends JavaPlugin {
 								if(p.getTargetBlock(null, 5).getType() == Material.CHEST && p.getTargetBlock(null, 5).getType() == Material.TRAPPED_CHEST){
 									chests.remove(p.getTargetBlock(null, 5).getLocation().toString());
 								}
+								return true;
+							}
+							if(args[0].equalsIgnoreCase("reload")){
+								this.reloadConfig();
+								p.sendMessage("The Config has been reloaded.");
 								return true;
 							}
 						}
