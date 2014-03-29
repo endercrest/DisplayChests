@@ -29,8 +29,8 @@ public class DisplayChest extends JavaPlugin {
 	@SuppressWarnings("deprecation")
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		Player p = (Player)sender;
-		if(cmd.getName().equalsIgnoreCase("displaychest")){
-			if(p.hasPermission("dc.create")){
+		if(p.hasPermission("dc.create")){
+			if(cmd.getName().equalsIgnoreCase("displaychest")){
 				if(p instanceof Player){
 					if(args.length > 1){
 						p.sendMessage("You have too many arguments");
@@ -67,6 +67,6 @@ public class DisplayChest extends JavaPlugin {
 				}
 			}
 		}
-		return false;
+		return true;
 	}
 }
