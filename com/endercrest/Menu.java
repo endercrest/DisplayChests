@@ -44,9 +44,15 @@ public class Menu {
 		GUI = PopupMenuAPI.createMenu(ChatColor.translateAlternateColorCodes('&', idConfig.get("Title").toString()), idConfig.getInt("Size"));
 		
 		for(int i=0; i<idConfig.getInt("Size")*9; i++){
+			MaterialData icon = new MaterialData(Material.getMaterial(idConfig.getInt(i + ".Item_ID")));
+			if(idConfig.isSet(i + ".Amount")){
+				icon.toItemStack().setAmount(idConfig.getInt(i + ".Amount"));
+			}else{
+				icon.toItemStack().setAmount(1);
+			}
 			
 			if(idConfig.isSet(i + ".Item_ID")){
-				MenuItem item = new MenuItem(ChatColor.translateAlternateColorCodes('&', idConfig.get(i + ".Name").toString()),new MaterialData(Material.getMaterial(idConfig.getInt(i + ".Item_ID")))){
+				MenuItem item = new MenuItem(ChatColor.translateAlternateColorCodes('&', idConfig.get(i + ".Name").toString()), icon){
 					@Override
 					public void onClick(Player player) {
 
@@ -64,6 +70,7 @@ public class Menu {
 				GUI.addMenuItem(item, i);
 			}
 		}
+		
 		
 		GUI.setExitOnClickOutside(false);
 		GUI.openMenu(p);

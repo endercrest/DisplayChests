@@ -14,7 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class DisplayChest extends JavaPlugin {
 
-	public double version = 1.0;
+	public String version = "1.0.1";
 	
 	public List<String> chests;
 	public List<String> chests_id;
