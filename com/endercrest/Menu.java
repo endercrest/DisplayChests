@@ -57,8 +57,10 @@ public class Menu {
 			if(idConfig.isSet(i + ".Item_ID")){
 				MenuItem item = new MenuItem(ChatColor.translateAlternateColorCodes('&', idConfig.get(i + ".Name").toString()), icon.getData(), amount){
 					@Override
-					public void onClick(Player player) {
-
+					public void onClick(Player p) {
+						if(plugin.getConfig().isSet("Click_MSG")){
+							p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getString("Click_MSG")));
+						}
 					}
 				};
 				
