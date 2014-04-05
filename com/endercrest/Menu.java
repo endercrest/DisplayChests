@@ -18,7 +18,7 @@ import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.material.MaterialData;
+import org.bukkit.inventory.ItemStack;
 
 public class Menu {
 
@@ -44,15 +44,18 @@ public class Menu {
 		GUI = PopupMenuAPI.createMenu(ChatColor.translateAlternateColorCodes('&', idConfig.get("Title").toString()), idConfig.getInt("Size"));
 		
 		for(int i=0; i<idConfig.getInt("Size")*9; i++){
-			MaterialData icon = new MaterialData(Material.getMaterial(idConfig.getInt(i + ".Item_ID")));
+			//MaterialData icon = new MaterialData(Material.getMaterial(idConfig.getInt(i + ".Item_ID")));
+			ItemStack icon = new ItemStack(Material.getMaterial(idConfig.getInt(i + ".Item_ID")));
+			if(idConfig.isSet(i + ".Data_Value")){
+				icon.setDurability((short) idConfig.getInt(i + ".Data_Value"));
+			}
+			int amount = 1;
 			if(idConfig.isSet(i + ".Amount")){
-				icon.toItemStack().setAmount(idConfig.getInt(i + ".Amount"));
-			}else{
-				icon.toItemStack().setAmount(1);
+				amount = idConfig.getInt(i + ".Amount");
 			}
 			
 			if(idConfig.isSet(i + ".Item_ID")){
-				MenuItem item = new MenuItem(ChatColor.translateAlternateColorCodes('&', idConfig.get(i + ".Name").toString()), icon){
+				MenuItem item = new MenuItem(ChatColor.translateAlternateColorCodes('&', idConfig.get(i + ".Name").toString()), icon.getData(), amount){
 					@Override
 					public void onClick(Player player) {
 
