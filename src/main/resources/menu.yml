@@ -1,0 +1,32 @@
+Title: ''
+Size: 3
+0:
+  Item_ID:
+  Name: ''
+  Amount:
+  Data_Value:
+  Sub-Text:
+  - ''
+  Enchantments:
+    #ARROW_DAMAGE: 0
+    #ARROW_FIRE: 0
+    #ARROW_INFINITE: 0
+    #ARROW_KNOCKBACK: 0
+    #DAMAGE_ALL: 0
+    #DAMAGE_ARTHROPODS: 0
+    #DAMAGE_UNDEAD: 0
+    #DIG_SPEED: 0
+    #DURABILITY: 0
+    #FIRE_ASPECT: 0
+    #KNOCKBACK: 0
+    #LOOT_BONUS_BLOCKS: 0
+    #LOOT_BONUS_MOBS: 0
+    #OXYGEN: 0
+    #PROTECTION_ENVIRONMENTAL: 0
+    #PROTECTION_EXPLOSIONS: 0
+    #PROTECTION_FALL: 0
+    #PROTECTION_FIRE: 0
+    #PROTECTION_PROJECTILE: 0
+    #SILK_TOUCH: 0
+    #THORNS: 0
+    #WATER_WORKER: 0

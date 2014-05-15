@@ -1,0 +1,14 @@
+name: ${project.name}
+main: com.endercrest.displaychest.DisplayChest
+version: ${project.version}
+website: ${project.url}
+authors: [tcvs]
+commands:
+    displaychest:
+        description: All Commands for dc
+        permission: dc.admin
+        aliases: [dc, displaychest]
+permissions:
+    dc.admin:
+            description: Allows you to create NPCs.
+            default: op
