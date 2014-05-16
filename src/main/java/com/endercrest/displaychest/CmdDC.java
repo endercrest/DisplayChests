@@ -105,7 +105,7 @@ public class CmdDC implements CommandExecutor{
     }
 
     private boolean isNumbers(CommandSender cs, String args[]){
-        if(!args[1].matches("[1-9]+")){
+        if(!args[1].matches("[0-9]+")){
             cs.sendMessage(DisplayChest.colorize("&cYou can only have numbers in the id."));
             return false;
         }
